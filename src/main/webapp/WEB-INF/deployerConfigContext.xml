@@ -139,7 +139,6 @@
 
     <sec:user-service id="userDetailsService">
         <sec:user name="admin" password="admin" authorities="ROLE_ADMIN" />
-		<!--<sec:user name="admin" password="admin" authorities="ROLE_ADMIN" />-->
     </sec:user-service>
 
 	<!-- 
