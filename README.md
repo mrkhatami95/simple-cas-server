@@ -5,9 +5,10 @@ Requirements to run this project :
 
 - Servlet Container (Tomcat Preferred)
 - Java 1.6+
-- Maven 3.0
+- Maven 3.0+
+- MySql Database 5.0+
 
-To Build Project
+To Build Project Type Below Command In The Project Directory.
 ```
 mvn package
 ```
