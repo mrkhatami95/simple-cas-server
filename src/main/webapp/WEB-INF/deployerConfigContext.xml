@@ -143,7 +143,7 @@
 				
 				<bean id="SearchModeSearchDatabaseAuthenticationHandler"
 					  class="org.jasig.cas.adaptors.jdbc.SearchModeSearchDatabaseAuthenticationHandler"
-					  abstract="false" singleton="true" lazy-init="default" autowire="default" dependency-check="default">
+					  abstract="false" lazy-init="default" autowire="default">
 				  <property  name="tableUsers">
 					<value>user</value>
 				  </property>
