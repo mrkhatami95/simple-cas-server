@@ -120,26 +120,7 @@
 					| where the username equals the password.  You will need to replace this with an AuthenticationHandler that implements your
 					| local authentication strategy.  You might accomplish this by coding a new such handler and declaring
 					| edu.someschool.its.cas.MySpecialHandler here, or you might use one of the handlers provided in the adaptors modules.
-					+
-				<bean 
-					class="org.jasig.cas.authentication.handler.support.SimpleTestUsernamePasswordAuthenticationHandler" />
-					 -->
-					 
-				<!-- MySQL connector -->
-				<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-					<property name="driverClassName">
-						<value>com.mysql.jdbc.Driver</value>
-					</property>
-					 <property name="url">
-						<value>jdbc:mysql://localhost:3306/security</value>
-					 </property>
-					 <property name="username">
-						<value>root</value>
-					 </property>
-					 <property name="password">
-						<value>123456</value>
-					 </property>
-				</bean>
+					+-->
 				
 				<bean id="SearchModeSearchDatabaseAuthenticationHandler"
 					  class="org.jasig.cas.adaptors.jdbc.SearchModeSearchDatabaseAuthenticationHandler"
@@ -156,14 +137,31 @@
 				  <property name="dataSource" ref="dataSource" />
 				</bean>
 
+				
 				<bean class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler">
 				  <property name="dataSource" ref="dataSource" />
-				  <property name="sql" value="select password from some_table where lower(username) = lower(?)" />
+				  <property name="sql" value="select password from user where lower(username) = lower(?)" />
 				</bean>
 			</list>
 		</property>
 	</bean>
 
+	<!-- MySQL connector -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		 <property name="url">
+			<value>jdbc:mysql://localhost:3306/security</value>
+		 </property>
+		 <property name="username">
+			<value>root</value>
+		 </property>
+		 <property name="password">
+			<value>123456</value>
+		 </property>
+	</bean>
+	
 	<!--
 	This bean defines the security roles for the Services Management application.  Simple deployments can use the in-memory version.
 	More robust deployments will want to use another option, such as the Jdbc version.
